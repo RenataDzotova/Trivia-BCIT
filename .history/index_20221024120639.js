@@ -20,11 +20,11 @@ App.get('/quiz', (req, res)=>{
 })
 
 //Chris Wrote This ==>
-// App.get('/someData',(req,res)=>{
-//   res.end(req.query)
-//   res.json({name:'chris'})
-// })
-//<== Chris Wrote This
+App.get('/someData',(req,res)=>{
+  console.log(req.query)
+  res.json({name:'chris'})
+})
+//<== Chris Wrote This ==>
 
 App.listen(3000)
 

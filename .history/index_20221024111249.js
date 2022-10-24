@@ -2,7 +2,7 @@ const express = require('express')
 // const bodyParser = require('body-parser')
 const App = express()
 const homepagePath = __dirname + '/index.html'
-const quizpagePath = __dirname + '/quiz.html'
+const quizpagePath = __dirname + ''
 
 // App.use( bodyParser({extended: false})) //? Had to npm i body-parser in order use this
 App.use(express.json())
@@ -15,24 +15,19 @@ App.get('/', (req, res)=>{
     res.sendFile(homepagePath)
 })
 
-App.get('/quiz', (req, res)=>{
-  res.sendFile(quizpagePath)
+App.get('/welcome', (req, res)=>{
+    res.send("Hello, Welcome to the Welcome page!")
 })
 
-//Chris Wrote This ==>
-// App.get('/someData',(req,res)=>{
-//   res.end(req.query)
-//   res.json({name:'chris'})
-// })
-//<== Chris Wrote This
+App.post('/signup', (req,res)=>{
+    console.log(req.body) //? Gives you access to the form data and json data
+    res.send("SignUp Complete")
+})
 
 App.listen(3000)
 
 
 
-// //To display the final score.
-// var result = ("YOUR FINAL SCORE IS: " + score + "/5")
-// console.log(result)
 
 
 

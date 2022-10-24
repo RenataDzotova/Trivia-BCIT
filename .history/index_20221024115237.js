@@ -19,12 +19,9 @@ App.get('/quiz', (req, res)=>{
   res.sendFile(quizpagePath)
 })
 
-//Chris Wrote This ==>
-// App.get('/someData',(req,res)=>{
-//   res.end(req.query)
-//   res.json({name:'chris'})
-// })
-//<== Chris Wrote This
+App.get('/someData',(req,res)=>{
+  res.send
+})
 
 App.listen(3000)
 

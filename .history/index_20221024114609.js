@@ -19,12 +19,10 @@ App.get('/quiz', (req, res)=>{
   res.sendFile(quizpagePath)
 })
 
-//Chris Wrote This ==>
-// App.get('/someData',(req,res)=>{
-//   res.end(req.query)
-//   res.json({name:'chris'})
-// })
-//<== Chris Wrote This
+App.post('/signup', (req,res)=>{
+    console.log(req.body) //? Gives you access to the form data and json data
+    res.send("SignUp Complete")
+})
 
 App.listen(3000)
 
