@@ -1,0 +1,20 @@
+const axios = require("axios")
+
+var theFormOnFirstPage = document.getElementById("fromOneId")
+var trueButton = document.getElementById("true")
+var falseButton = document.getElementById("false")
+
+console.log(theFormOnFirstPage)
+
+trueButton.addEventListener("click", () => {
+    axios.post("/somethiing", ()=>{
+        res.end("This is a true fact")
+    })    
+})
+falseButton.addEventListener("click", () => {
+    axios.post("/somethiing", ()=>{
+        res.end("False")
+    })    
+})
+
+
