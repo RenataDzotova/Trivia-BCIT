@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <img src="../public/1.jpeg"/> -->
+    <!-- <form method="post" action="/checkAnswer"> -->
+    <h1>Question #1: Which fact is false about Darinka?</h1>
+    <button id="true" onclick="SendAnswer(1,1)">Has travelled to 35+ countries</button>
+    <button id="false" onclick="SendAnswer(2)">Favourite holiday is Christmas</button>
+    <button id="true" onclick="SendAnswer(3)">Had 2 pet spider monkeys at home</button>
+    <button id="true" onclick="SendAnswer(4)">Dug up dinosaurs in 2015 in Alberta</button>
+    <!-- </form> -->
+    <script>
+        // var trueButton = document.getElementById("true")
+        // var falseButton = document.getElementById("false")
+        var buttons = document.querySelectorAll("button")
+
+
+        //     buttons.forEach(button => {
+        //         button.addEventListener('click', () => {
+        //             console.log('done')
+        //             fetch(`http://localhost:3000/checkAnswer?q=1`).then(async (data)=>{
+        //             console.log(await data.json())
+        //         })
+        //     })
+        // })
+        function SendAnswer(ans, q) {
+            console.log("test");
+            fetch(`http://localhost:3000/checkAnswer?answer=` + ans).then(async (data) => {
+                //console.log(await data.json())
+                const results = await data.json();
+                if (results){
+                    alert('correct');
+                } else {
+                    alert('no')
+                }
+            })
+        }
+
+        // button.addEventListener('click', (e) => 
+        //     console.log("click")
+        // // })
+
+
+        // button.addEventListener("click", (event) => {
+        //     if(event.target.id == "true"){
+        //         fetch(`http://localhost:3000/true`).then(async (data)=>{
+        //         console.log(await data.json())
+        //     })}
+        //     if(event.target.id == "false"){
+        //         fetch(`http://localhost:3000/false`).then(async (data)=>{
+        //         console.log(await data.json())
+        //     })}
+        // })
+
+    </script>
+</body>
+
+</html>
