@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <img src="../public/1.jpeg"/> -->
+    <h1>Question #1: Which fact is false about Darinka?</h1>
+        <button id="true">Has travelled to 35+ countries</button>
+        <button id="false">Favourite holiday is Christmas</button>
+        <button id="true">Had 2 pet spider monkeys at home</button>
+        <button id="true">Dug up dinosaurs in 2015 in Alberta</button>
+    <script>
+        var trueButton = document.getElementById("true")
+        var falseButton = document.getElementById("false")
+
+        trueButton.addEventListener("click", (event) => {
+            fetch(`http://localhost:3000/false`).then(async (data)=>{
+                console.log(await data.json())
+            })    
+        })
+        falseButton.addEventListener("click", (event) => {
+            fetch(`http://localhost:3000/true`).then(async (data)=>{
+                console.log(eventawait data.json())
+            }) 
+        })
+    </script>
+</body>
+
+</html>

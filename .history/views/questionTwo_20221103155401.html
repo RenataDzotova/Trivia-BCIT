@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .visible{
+            position: absolute;
+            top:20%;
+            left:50%;
+            width: 400px;
+            height: 300px;
+            background-color: blanchedalmond;
+        }
+        .visibleNextButton{
+            display:block
+        }
+
+        .defaultNextButton{
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../public/1.jpeg"/>
+    <h1>Question #1: Which fact is false about Darinka?</h1>
+    <button onclick="SendAnswer(1,1)">Has travelled to 35+ countries</button>
+    <button onclick="SendAnswer(2,1)">Favourite holiday is Christmas</button>
+    <button onclick="SendAnswer(3,1)">Had 2 pet spider monkeys at home</button>
+    <button onclick="SendAnswer(4,1)">Dug up dinosaurs in 2015 in Alberta</button>
+   
+    <div>
+        <h2></h2>
+        <a id="nextButton" class="defaultNextButton" href="/q3">
+            <button>Next</button>
+        </a>
+    </div>
+
+    <div>
+        <h3>Your Score is:</h3>
+        <h3 id="score"></h3>
+    </div>
+    
+    
+    <script>
+       var answerDiv = document.querySelector("div")
+        var rightWrong = document.querySelector("h2")
+        var nextButton = document.querySelector("#nextButton")
+        var scoreNum = document.querySelector("#score")
+        function SendAnswer(ans, ques) {
+            fetch(`http://localhost:3000/checkAnswer?answer=${ans}&question=${ques}`).then(async (data) => {
+                //console.log(await data.json())
+                const results = await data.json();
+                if (results){
+                    answerDiv.classList.add("visible")
+                    rightWrong.innerText = ("Correct")
+                    nextButton.classList.add("visibleNextButton")
+                    nextButton.classList.remove("defaultNextButton")
+                    scoreNum.innerText = results
+
+                    
+                } else {
+                    answerDiv.classList.add("visible")
+                    rightWrong.innerText = ("Wrong")
+                    nextButton.classList.add("visibleNextButton")
+                    nextButton.classList.remove("defaultNextButton")
+                    scoreNum.innerText = results
+                    
+                }
+                console.log(results)
+            })
+        }
+
+    </script>
+</body>
+
+</html>

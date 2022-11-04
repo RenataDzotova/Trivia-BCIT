@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./index.js"></script> -->
+</head>
+<body>
+    <h2>Welcome to the app</h2>
+    <a href=""
+    
+</body>
+<script>
+    // alert("Welcome to the BCIT Teacher Quiz");
+    // var username = window.prompt("Your Name?")
+    // alert("Welcome to THE QUIZ, " + username + "!");
+
+
+    //Chris Wrote This ==>
+    const res = fetch(`http://localhost:3000/someData`).then(async (data)=>{
+        console.log(await data.json())
+    })
+    //<== Chris Wrote This
+
+    
+    var score = Math.max(0);    
+    
+    //questions
+    var questions = [
+      {
+        question: "Which fact is false about Darinka?",
+        q1: "a) Has travelled to 35+ countries",
+        q2: "b) Favourite holiday is Christmas",
+        q3: "c) Had 2 pet spider monkeys at home",
+        q4: "d) Dug up dinosaurs in 2015 in Alberta",
+        answer: "b"
+      },
+      {
+        question: "Which fact is false about Amalia?",
+        q1: " a) Can name all the US States in alphabetical order",
+        q2: " b) Has met Prince Harry  ",
+        q3: " c) I've seen Gilmore Girls 10 times through",
+        q4: " d) Can't go to bed without a cup of tea every night",
+        answer: "d"
+      },
+      {
+        question: "Which fact is false about Chris?",
+        q1: " a) He has watched Friends 10 times",
+        q2: " b) He can speak chinese fluently",
+        q3: " c) He can juggle with 4 balls",
+        q4: " d) He has eaten frogs before",
+        answer: "c"
+      },
+      {
+        question: "Which fact is false about Wim?",
+        q1: " a) He wears wet socks during summer",
+        q2: " b) He is related to a Dutch Prince",
+        q3: " c) He has goat milk hot chocolate with honey everyday",
+        q4: " d) He was in a hacker group in the 80's",
+        answer: "a"
+      },
+      {
+        question: "Did you like the quiz?",
+        q1: "yes",
+        q2: "no",
+        q3: "",
+        q4: "",
+        answer: "yes"
+      }
+    ];
+    
+    //LOOP
+    // for (var i = 0; i < questions.length; i++) {
+    //   var response = window.prompt(questions[i].question + "\n" + questions[i].q1 + "\n" + questions[i].q2 + "\n" + questions[i].q3 + "\n" + questions[i].q4 + "\n")
+    //   if (response == questions[i].answer) {
+    //     alert("correct! ");
+    //     score++;
+    //   }
+    //   else {
+    //     alert("wrong! ");
+    //     if(score >= 1){
+    //         score--;
+    //     } else {
+    //         score
+    //     }
+        
+    //   }
+    // }
+    // alert("Your Score Is: " + score + "/5");
+    //   console.log("-------------------");
+    </script>
+</html>
