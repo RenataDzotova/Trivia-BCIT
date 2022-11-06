@@ -12,7 +12,6 @@ const q6 = path.join(__dirname,'views/questionSix.html')
 const q7 = path.join(__dirname,'views/questionSeven.html')
 const q8 = path.join(__dirname,'views/questionEight.html')
 const q9 = path.join(__dirname,'views/questionNine.html')
-const q10 = path.join(__dirname,'views/questionTen.html')
 
 app.use(express.static('views'))
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -85,8 +84,8 @@ const answerkey = {
   "5":4,
   "6":2,
   "7":1,
-  "8":2,
-  "9":4,
+  "8":1,
+  "9":1,
   "10":1
 }
 
