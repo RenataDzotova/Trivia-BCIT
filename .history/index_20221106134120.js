@@ -10,16 +10,13 @@ const q4 = path.join(__dirname,'views/questionFour.html')
 const q5 = path.join(__dirname,'views/questionFive.html')
 const q6 = path.join(__dirname,'views/questionSix.html')
 const q7 = path.join(__dirname,'views/questionSeven.html')
-const q8 = path.join(__dirname,'views/questionEight.html')
-const q9 = path.join(__dirname,'views/questionNine.html')
-const q10 = path.join(__dirname,'views/questionTen.html')
 
 app.use(express.static('views'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json())
 
 
-app.get('/', (req, res)=>{
+app.get('/bow', (req, res)=>{
     // console.log(req.query) //? This will now make an object out of whatever query is inserted in the searchbar, for example, "localhost:3000/?name=cocoa" will console.log { name: 'cocoa' }
     res.sendFile(quizpagePath)
 })
@@ -59,22 +56,7 @@ app.get('/q6', (req, res)=>{
 
 app.get('/q7', (req, res)=>{
   // console.log(req.query) 
-  res.sendFile(q7)
-})
-
-app.get('/q8', (req, res)=>{
-  // console.log(req.query) 
-  res.sendFile(q8)
-})
-
-app.get('/q9', (req, res)=>{
-  // console.log(req.query) 
-  res.sendFile(q9)
-})
-
-app.get('/q10', (req, res)=>{
-  // console.log(req.query) 
-  res.sendFile(q10)
+  res.sendFile(q6)
 })
 
 const answerkey = {
@@ -84,10 +66,7 @@ const answerkey = {
   "4":1,
   "5":4,
   "6":2,
-  "7":1,
-  "8":2,
-  "9":4,
-  "10":1
+  "6":1
 }
 
 

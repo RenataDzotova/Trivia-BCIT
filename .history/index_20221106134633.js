@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json())
 
 
-app.get('/', (req, res)=>{
+app.get('/bow', (req, res)=>{
     // console.log(req.query) //? This will now make an object out of whatever query is inserted in the searchbar, for example, "localhost:3000/?name=cocoa" will console.log { name: 'cocoa' }
     res.sendFile(quizpagePath)
 })
