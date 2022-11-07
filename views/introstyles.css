@@ -2,7 +2,7 @@ body {
     display: flex;
     justify-content:center;
     flex-direction: column;
-    background-image: url("/public/classroom.png");
+    background-image: url("classroom.png");
 }
 
 .body {
