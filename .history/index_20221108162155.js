@@ -19,9 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json())
 app.set("view engine", "ejs");
 var publicdir = path.join(__dirname, 'public');
-// var serverdir = path.join(__dirname, 'server');
 app.use(express.static(publicdir));
-// app.use(express.static(serverdir))
 
 
 app.get('/', (req, res)=>{
@@ -124,6 +122,17 @@ const allQuestions = {
     opt1:"One of his front teeth is fake",
     opt2:"He toured as a guitarist in a band",
     opt3:"Sold a basketball signed by Yao Ming for $20,000",
+    opt4:"Favourite ice cream flavour from “La Glace” is the mango cilantro chili",
+    ans:"opt2",
+    happy: "https://media.tenor.com/GS3tEVdo3Z4AAAAC/joy-inside-out.gif",
+    sad: "https://media.tenor.com/cXI2cy9yEYoAAAAC/crying-sad.gif"
+  },
+  9:{///WHICH ONE IS FAKE
+    num: "9",
+    ques:"Question #9: Which fact is false about Richard?",
+    opt1:"Has a turtoise named Moe",
+    opt2:"Has ",
+    opt3:"He accidentally chopped off tip of index finger",
     opt4:"Favourite ice cream flavour from “La Glace” is the mango cilantro chili",
     ans:"opt2",
     happy: "https://media.tenor.com/GS3tEVdo3Z4AAAAC/joy-inside-out.gif",
