@@ -56,9 +56,8 @@
         var nextButton = document.querySelector("#nextButton")
         var scoreNum = document.querySelector("#score")
         var instructorFace = document.querySelector("#image")
-        var buttondamn = document.querySelectorAll(".button")
         function SendAnswer(ans, ques) {
-            buttondamn.forEach(elem=>{elem.disabled = true})
+
             fetch(`http://localhost:3000/checkAnswer?answer=${ans}&question=${ques}`).then(async (data) => {
                 //console.log(await data.json())
                 const results = await data.json();
@@ -68,9 +67,7 @@
                     rightWrong.innerText = ("Correct")
                     nextButton.classList.add("visibleNextButton")
                     nextButton.classList.remove("defaultNextButton")
-                    instructorFace.classList.remove("defaultNextButton")
-                    instructorFace.classList.add("visibleNextButton")
-                    scoreNum.innerText = results.finalScore
+                    scoreNum.innerText = results.score
                     instructorFace.src = results.image
                     
 
@@ -80,9 +77,7 @@
                     rightWrong.innerText = ("Wrong")
                     nextButton.classList.add("visibleNextButton")
                     nextButton.classList.remove("defaultNextButton")
-                    instructorFace.classList.remove("defaultNextButton")
-                    instructorFace.classList.add("visibleNextButton")
-                    scoreNum.innerText = results.finalScore
+                    scoreNum.innerText = (results.score)
                     instructorFace.src = results.image
                     
                 }

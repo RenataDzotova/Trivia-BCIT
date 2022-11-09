@@ -4,8 +4,16 @@ const app = express()
 const path = require('path')
 const quizpagePath =  path.join(__dirname,'views/quiz.html')
 const q1 = path.join(__dirname,'views/question.ejs')
-const {allQuestions} = require('./database')
-
+const allQuestions = require('./database')
+// const q2 = path.join(__dirname,'views/questionTwo.html')
+// const q3 = path.join(__dirname,'views/questionThree.html')
+// const q4 = path.join(__dirname,'views/questionFour.html')
+// const q5 = path.join(__dirname,'views/questionFive.html')
+// const q6 = path.join(__dirname,'views/questionSix.html')
+// const q7 = path.join(__dirname,'views/questionSeven.html')
+// const q8 = path.join(__dirname,'views/questionEight.html')
+// const q9 = path.join(__dirname,'views/questionNine.html')
+// const q10 = path.join(__dirname,'views/questionTen.html')
 
 app.use(express.static('views'))
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -13,8 +21,6 @@ app.use(express.json())
 app.set("view engine", "ejs");
 var publicdir = path.join(__dirname, 'public');
 app.use(express.static(publicdir));
-var stylesdir = path.join(__dirname, 'styles');
-app.use(express.static(stylesdir));
 
 
 app.get('/', (req, res)=>{
@@ -25,7 +31,7 @@ app.get('/', (req, res)=>{
 
 
 app.get('/quiz', (req, res)=>{
-  console.log(allQuestions)
+  console.log(allQuestions.allQuestions)
   res.render(q1, {
     allQuestions,
     qnum:Number(req.query.q)
