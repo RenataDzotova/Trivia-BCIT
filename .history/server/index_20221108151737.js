@@ -18,8 +18,10 @@ app.use(express.static('views'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json())
 app.set("view engine", "ejs");
-var dir = path.join(__dirname, 'public');
-app.use(express.static(dir));
+var publicdir = path.join(__dirname, 'public');
+var serverdir = path.join(__dirname, 'server');
+app.use(express.static(publicdir));
+app.use(express.static(serverdir))
 
 
 app.get('/', (req, res)=>{
@@ -69,7 +71,7 @@ const allQuestions = {
     opt3:"Has eaten frogs",
     opt4:"Was the fastest runner in school as a kid",
     ans:"opt1",
-    happy: "public/classroom.png",
+    happy: "classroom.png",
     sad: "https://media.tenor.com/cXI2cy9yEYoAAAAC/crying-sad.gif"
   },
   4:{
