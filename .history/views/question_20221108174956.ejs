@@ -58,7 +58,7 @@
         var instructorFace = document.querySelector("#image")
         var buttondamn = document.querySelectorAll(".button")
         function SendAnswer(ans, ques) {
-            buttondamn.forEach(elem=>{elem.disabled = true})
+            // buttondamn.forEach(elem=>{elem.disabled = true})
             fetch(`http://localhost:3000/checkAnswer?answer=${ans}&question=${ques}`).then(async (data) => {
                 //console.log(await data.json())
                 const results = await data.json();

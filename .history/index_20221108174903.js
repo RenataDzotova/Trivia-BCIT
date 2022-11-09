@@ -6,15 +6,12 @@ const quizpagePath =  path.join(__dirname,'views/quiz.html')
 const q1 = path.join(__dirname,'views/question.ejs')
 const {allQuestions} = require('./database')
 
-
 app.use(express.static('views'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json())
 app.set("view engine", "ejs");
 var publicdir = path.join(__dirname, 'public');
 app.use(express.static(publicdir));
-var stylesdir = path.join(__dirname, 'styles');
-app.use(express.static(stylesdir));
 
 
 app.get('/', (req, res)=>{

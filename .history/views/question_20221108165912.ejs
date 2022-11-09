@@ -29,10 +29,10 @@
     <img src="ok.jpeg" width="200" height="200"/>
     <h1> <%= allQuestions[qnum].ques %> </h1> 
     
-    <button class="button" onclick="SendAnswer('<%= allQuestions[qnum].num %>', 'opt1')"><%= allQuestions[qnum].opt1 %></button>
-    <button class="button" onclick="SendAnswer('<%= allQuestions[qnum].num %>', 'opt2')"><%= allQuestions[qnum].opt2 %></button>
-    <button class="button" onclick="SendAnswer('<%= allQuestions[qnum].num %>', 'opt3')"><%= allQuestions[qnum].opt3 %></button>
-    <button class="button" onclick="SendAnswer('<%= allQuestions[qnum].num %>', 'opt4')"><%= allQuestions[qnum].opt4 %></button>
+    <button onclick="SendAnswer('<%= allQuestions[qnum].num %>', 'opt1')"><%= allQuestions[qnum].opt1 %></button>
+    <button onclick="SendAnswer('<%= allQuestions[qnum].num %>', 'opt2')"><%= allQuestions[qnum].opt2 %></button>
+    <button onclick="SendAnswer('<%= allQuestions[qnum].num %>', 'opt3')"><%= allQuestions[qnum].opt3 %></button>
+    <button onclick="SendAnswer('<%= allQuestions[qnum].num %>', 'opt4')"><%= allQuestions[qnum].opt4 %></button>
 
     <!-- <button onclick="SendAnswer(1,{allQuestions[]})">{allQuestions[].opt1}</button>
     <button onclick="SendAnswer(2,{allQuestions[]})">{allQuestions[].opt2} </button>
@@ -56,9 +56,7 @@
         var nextButton = document.querySelector("#nextButton")
         var scoreNum = document.querySelector("#score")
         var instructorFace = document.querySelector("#image")
-        var buttondamn = document.querySelectorAll(".button")
         function SendAnswer(ans, ques) {
-            buttondamn.forEach(elem=>{elem.disabled = true})
             fetch(`http://localhost:3000/checkAnswer?answer=${ans}&question=${ques}`).then(async (data) => {
                 //console.log(await data.json())
                 const results = await data.json();
@@ -68,9 +66,7 @@
                     rightWrong.innerText = ("Correct")
                     nextButton.classList.add("visibleNextButton")
                     nextButton.classList.remove("defaultNextButton")
-                    instructorFace.classList.remove("defaultNextButton")
-                    instructorFace.classList.add("visibleNextButton")
-                    scoreNum.innerText = results.finalScore
+                    scoreNum.innerText = results.score
                     instructorFace.src = results.image
                     
 
@@ -80,14 +76,11 @@
                     rightWrong.innerText = ("Wrong")
                     nextButton.classList.add("visibleNextButton")
                     nextButton.classList.remove("defaultNextButton")
-                    instructorFace.classList.remove("defaultNextButton")
-                    instructorFace.classList.add("visibleNextButton")
-                    scoreNum.innerText = results.finalScore
+                    scoreNum.innerText = (results.score)
                     instructorFace.src = results.image
                     
                 }
             })
-            return
         }
     </script>
 </body>
