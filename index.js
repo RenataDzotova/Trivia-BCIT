@@ -5,8 +5,11 @@ const path = require('path')
 const quizpagePath =  path.join(__dirname,'views/quiz.html')
 const q1 = path.join(__dirname,'views/question.ejs')
 const {allQuestions} = require('./database')
+const scorepagePath =  path.join(__dirname,'views/score.html')
 
-
+app.get('/score', (req, res)=>{
+res.sendFile(scorepagePath)
+})
 app.use(express.static('views'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json())
