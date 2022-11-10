@@ -30,11 +30,20 @@
 
     }
     
-    .score {
+    .result {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .result-card{
+        background-color: #5895B3;
+        color: #ffffff;
+        text-align: center;
+        width: 250px;
+        border-radius: 10px;
+        padding: 15px;
     }
 
     .award {
@@ -76,14 +85,26 @@
 <body>
 <div id="Wrapper">
 
-    <div class="score">
+    <!-- Unperfect Score -->
+    <div class="result">
+        <img src="/ribbon.svg" alt="ribbon award">
+        <div class="result-card">
+            <p> Congrats! Here is your participation ribbon.
+                Your score wasn't perfect which means you have a life outside school!
+            </p>
+
+        </div>
+    </div>
+
+        <!-- Perfect score -->
+        <div class="result">
         <div class="award">
             <p>Congrats <br>
             [NAME]<br>
             You are the most knowlegeble about BCIT instuctors. I think it’s time to find a new hobby.  
             </p>
         </div>
-    </div>
+    </div> 
 
     <div class="card">
      <p>
