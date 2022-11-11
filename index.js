@@ -2,12 +2,19 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const path = require('path')
-const quizpagePath = path.join(__dirname, 'views/quiz.html')
-const q1 = path.join(__dirname, 'views/question.ejs')
+const quizpagePath =  path.join(__dirname,'views/quiz.ejs')
+const q1 = path.join(__dirname,'views/question.ejs')
 const { allQuestions } = require('./database')
+// const {allQuestions} = require('./database')
+// const scorepagePath =  path.join(__dirname,'views/score.ejs')
+// const quizpagePath = path.join(__dirname, 'views/quiz.ejs')
+// const q1 = path.join(__dirname, 'views/question.ejs')
 
+// this needed to be gone so the app.get(/score) for the name function to work
+//app.get('/score', (req, res)=>{
+// res.render(scorepagePath)
+// })
 
-app.use(express.static('views'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json())
 app.set("view engine", "ejs");
@@ -17,9 +24,25 @@ var stylesdir = path.join(__dirname, 'styles');
 app.use(express.static(stylesdir));
 
 
-app.get('/', (req, res) => {
-  // console.log(req.query) //? This will now make an object out of whatever query is inserted in the searchbar, for example, "localhost:3000/?name=cocoa" will console.log { name: 'cocoa' }
-  res.sendFile(quizpagePath)
+// app.get('/quiz', (req,res)=>{
+//     res.render('/quiz')
+// })
+
+app.get('/score', (req,res)=>{
+    var name = req.query.name
+    console.log(name)
+    res.render('score',{data:name})
+    //grab result from here
+})
+
+
+
+app.get('/', (req, res)=>{
+    // console.log(req.query) //? This will now make an object out of whatever query is inserted in the searchbar, for example, "localhost:3000/?name=cocoa" will console.log { name: 'cocoa' }
+    res.render(quizpagePath)
+// app.get('/', (req, res) => {
+//   // console.log(req.query) //? This will now make an object out of whatever query is inserted in the searchbar, for example, "localhost:3000/?name=cocoa" will console.log { name: 'cocoa' }
+//   res.sendFile(quizpagePath)
 })
 
 
