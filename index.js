@@ -4,8 +4,11 @@ const app = express()
 const path = require('path')
 const quizpagePath =  path.join(__dirname,'views/quiz.ejs')
 const q1 = path.join(__dirname,'views/question.ejs')
-const {allQuestions} = require('./database')
-const scorepagePath =  path.join(__dirname,'views/score.ejs')
+// const {allQuestions} = require('./database')
+// const scorepagePath =  path.join(__dirname,'views/score.ejs')
+// const quizpagePath = path.join(__dirname, 'views/quiz.ejs')
+// const q1 = path.join(__dirname, 'views/question.ejs')
+const { allQuestions } = require('./database')
 
 // app.get('/score', (req, res)=>{
 // res.render(scorepagePath)
@@ -36,44 +39,47 @@ app.get('/score', (req,res)=>{
 app.get('/', (req, res)=>{
     // console.log(req.query) //? This will now make an object out of whatever query is inserted in the searchbar, for example, "localhost:3000/?name=cocoa" will console.log { name: 'cocoa' }
     res.render(quizpagePath)
+// app.get('/', (req, res) => {
+//   // console.log(req.query) //? This will now make an object out of whatever query is inserted in the searchbar, for example, "localhost:3000/?name=cocoa" will console.log { name: 'cocoa' }
+//   res.sendFile(quizpagePath)
 })
 
 
 
-app.get('/quiz', (req, res)=>{
+app.get('/quiz', (req, res) => {
   console.log(allQuestions)
   res.render(q1, {
     allQuestions,
-    qnum:Number(req.query.q)
+    qnum: Number(req.query.q)
   })
 })
 
 
 var finalScore = Math.max(0)
-app.get('/checkAnswer', (req, res)=>{
+app.get('/checkAnswer', (req, res) => {
   var score = 0
- 
+
   // const questionNumber = req.query.question
   // const data = allQuestions[questionNumber]
   // console.log(allQuestions[req.query.answer].ans)
   // console.log(allQuestions[req.query.answer].ans)
   // console.log(req.query.question)
   // res.render('question', data)
-   if((req.query.question) === allQuestions[req.query.answer].ans){
-    score ++;
-    finalScore = finalScore+score;
-    res.json({fact:true, score:score, image:allQuestions[req.query.answer].happy, finalScore:finalScore});
+  if ((req.query.question) === allQuestions[req.query.answer].ans) {
+    score++;
+    finalScore = finalScore + score;
+    res.json({ fact: true, score: score, image: allQuestions[req.query.answer].happy, finalScore: finalScore });
 
 
-  } else{
+  } else {
     score;
-    res.json({fact:false, score:score, image:allQuestions[req.query.answer].sad, finalScore:finalScore});   
-  } 
+    res.json({ fact: false, score: score, image: allQuestions[req.query.answer].sad, finalScore: finalScore });
+  }
 
 
 
   // res.render(__dirname + "/views/questionTwo.html", {score:score})
-//?body key is for posts   //?params is for gets
+  //?body key is for posts   //?params is for gets
   // if(Number(req.query.answer) === answerkey[req.query.question]){
   //   res.json({fact:true, score:score});
   //   score ++
@@ -88,8 +94,8 @@ app.get('/checkAnswer', (req, res)=>{
   // }
 })
 
-  // res.sendFile(trueFile)
-  
+// res.sendFile(trueFile)
+
 
 
 // app.get('/quiz', (req, res)=>{
@@ -102,7 +108,7 @@ app.get('/checkAnswer', (req, res)=>{
 //   res.json({name:'chris'})
 // })
 // //<== Chris Wrote This
-const PORT = 3000 
+const PORT = 3000
 app.listen(PORT, () => {
   console.log(`The app is running on port ${PORT}`)
 })
@@ -111,47 +117,47 @@ app.listen(PORT, () => {
 
 
 // app.get('/q2', (req, res)=>{
-//   // console.log(req.query) 
+//   // console.log(req.query)
 //   res.sendFile(q2)
 // })
 
 // app.get('/q3', (req, res)=>{
-//   // console.log(req.query) 
+//   // console.log(req.query)
 //   res.sendFile(q3)
 // })
 
 // app.get('/q4', (req, res)=>{
-//   // console.log(req.query) 
+//   // console.log(req.query)
 //   res.sendFile(q4)
 // })
 
 // app.get('/q5', (req, res)=>{
-//   // console.log(req.query) 
+//   // console.log(req.query)
 //   res.sendFile(q5)
 // })
 
 // app.get('/q6', (req, res)=>{
-//   // console.log(req.query) 
+//   // console.log(req.query)
 //   res.sendFile(q6)
 // })
 
 // app.get('/q7', (req, res)=>{
-//   // console.log(req.query) 
+//   // console.log(req.query)
 //   res.sendFile(q7)
 // })
 
 // app.get('/q8', (req, res)=>{
-//   // console.log(req.query) 
+//   // console.log(req.query)
 //   res.sendFile(q8)
 // })
 
 // app.get('/q9', (req, res)=>{
-//   // console.log(req.query) 
+//   // console.log(req.query)
 //   res.sendFile(q9)
 // })
 
 // app.get('/q10', (req, res)=>{
-//   // console.log(req.query) 
+//   // console.log(req.query)
 //   res.sendFile(q10)
 // })
 
