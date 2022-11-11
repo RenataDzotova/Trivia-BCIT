@@ -4,13 +4,14 @@ const app = express()
 const path = require('path')
 const quizpagePath =  path.join(__dirname,'views/quiz.ejs')
 const q1 = path.join(__dirname,'views/question.ejs')
+const { allQuestions } = require('./database')
 // const {allQuestions} = require('./database')
 // const scorepagePath =  path.join(__dirname,'views/score.ejs')
 // const quizpagePath = path.join(__dirname, 'views/quiz.ejs')
 // const q1 = path.join(__dirname, 'views/question.ejs')
-const { allQuestions } = require('./database')
 
-// app.get('/score', (req, res)=>{
+// this needed to be gone so the app.get(/score) for the name function to work
+//app.get('/score', (req, res)=>{
 // res.render(scorepagePath)
 // })
 
