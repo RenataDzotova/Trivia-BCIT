@@ -10,12 +10,26 @@
     <!-- <script src="./questionOne.js" defer></script> -->
 </head>
 <body>
-        <div class="body"></div>
-        <div class="heading">Welcome to "Guess the BCIT Instructor" </div>
-        <img class="image" src="/H.png" alt="Henry">
+    <div class="overlay"></div>
+    <div class="heading">Welcome to "Guess the BCIT Instructor" </div>
+    <img class="image" src="/H.png" alt="Henry">
+    
+    <div class="name-div">
+        <input id="name-input" type="text" placeholder="Your Name"> 
+        <button id="name-button" onclick="sendName()">Submit</button>
+        <script>
+            function sendName(){
+                const name = document.getElementById('name-input')
+                
+                 window.location.href = `http://localhost:3000/score?name=${name.value}`
+                //  window.location.href = `http://localhost:3000/quiz?q=1`
+                //score page isn't integrated after the last question, the submit button leads strait to score sheet
+            }
+            </script>
+        </div>
         <button class="start" id="true"><a href='/quiz?q=1'>Begin</a></button>
-</body>
-<script>
+    </body>
+    <script>
     // alert("Welcome to the BCIT Teacher Quiz");
     // var username = window.prompt("Your Name?")
     // alert("Welcome to THE QUIZ, " + username + "!");

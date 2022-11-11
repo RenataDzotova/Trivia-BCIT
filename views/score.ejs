@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="/introstyles.css" rel="stylesheet">
-    <!-- <script src="./questionOne.js" defer></script> -->
+    <script src="./question.ejs" defer></script>
     <!-- class= . id = # -->
 </head>
 <style> 
@@ -27,10 +27,18 @@
         width: 250px;
         border-radius: 10px;
         padding: 15px;
+    }
 
+    p{
+        margin: 0px;
+    }
+
+    .name{
+        font-size: 40px;
+        margin: 0px;
     }
     
-    .result {
+    .result-1, .result-2 {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -47,7 +55,6 @@
     }
 
     .award {
-        display: flex;
         justify-content: flex-start;
         align-items: flex-start;
         text-align: center;
@@ -82,14 +89,26 @@
  
 
 </style>
+<script>
+
+    //fetch or pass the score with the :name to this page
+    if (finalScore > 7 ){
+        document.getElementsByClassName("result-1").style.display="block";
+    }
+    else {
+        document.getElementsByClassName("result-2").style.display="block";
+    }
+</script>
 <body>
 <div id="Wrapper">
 
+
     <!-- Unperfect Score -->
-    <div class="result">
+    <div class="result-1">
         <img src="/ribbon.svg" alt="ribbon award">
         <div class="result-card">
-            <p> Congrats! Here is your participation ribbon.
+            
+            <p> Good job <p class="name"><%= data %>!</p> ! Here is your participation ribbon.
                 Your score wasn't perfect which means you have a life outside school!
             </p>
 
@@ -97,10 +116,10 @@
     </div>
 
         <!-- Perfect score -->
-        <div class="result">
+        <div class="result-1">
         <div class="award">
             <p>Congrats <br>
-            [NAME]<br>
+            <p class="name"><%= data %>!</p>
             You are the most knowlegeble about BCIT instuctors. I think it’s time to find a new hobby.  
             </p>
         </div>
