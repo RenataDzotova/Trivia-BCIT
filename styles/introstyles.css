@@ -5,18 +5,20 @@ body {
     flex-direction: column;
     width: 100vw;
     height: 100vh;
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
     background-image: url("classroom.png");
 }
 
 .overlay {
     display: flex;
-    background-color: #386C94;
     position: absolute;
-    left: 0%;
-    right: 0%;
     top: 0%;
     bottom: 0%;
     height:100%;
+    width: 100%;
     opacity: 0.6;
     animation-name: backdrop;
     animation-duration: 4s;
@@ -25,13 +27,6 @@ body {
     z-index: -1;
 }
 
-@keyframes backdrop {
-    0%  {background-color: #B5CFE3;}
-    20% {background-color: #97BCD8;}
-    40% {background-color: #7AA9CD;}
-    60% {background-color: #5C96C1;}
-    80% {background-color: #4382B1;}
-  }
 
 .image {
     display: flex;
@@ -46,23 +41,63 @@ body {
     animation-direction: alternate-reverse;
 }
 
-  @keyframes intro {
+@keyframes backdrop {
+  0% {background-color:#7AA9CD;}
+  20% {background-color: #97BCD8;}
+  40% {background-color: #C4D8E8;}
+  60% {background-color: #B5CFE3;}
+  80% {background-color: #5C96C1;}
+  100% {background-color: #4382B1;}
+}
+
+img {
+  display: flex;
+  align-self:center;
+  width:125px;
+  height:125px;
+  border-radius: 50%;
+  margin-top: 60px;
+  opacity: 0.8;
+  border: 2px solid #336084;
+  position: relative;
+  animation: image 4s ease-in-out infinite;
+  animation-direction: alternate-reverse;
+}
+
+  @keyframes image {
     0% {transform: translatey(0px); opacity:0.9}
     50% {transform: translatey(-20px);}
     100% {transform: translatey(0px);}
   }
 
+.avatars {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.subheading {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  text-align: center;
+  margin-top: 150px;
+  color: #000000;
+  animation: float 10s ease-in-out infinite;
+}
+
 .heading {
-    font-family: 'Laila';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 40px;
-    line-height: 62px;
-    text-align: center;
-    margin-top: 100px;
-    color: #FFFFFF;
-    animation: float 10s ease-in-out;
-    animation-iteration-count: infinite;
+  font-family: 'Laila';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 20px;
+  color: #000000;
+  animation: float 10s ease-in-out infinite;
 }
 
 @keyframes float {
@@ -73,7 +108,7 @@ body {
 
 a {
     text-decoration: none;
-    color: #191a0b;
+    color: #FFFFFF;
 }
 
 
@@ -111,11 +146,11 @@ a {
     font-family: 'Laila';
     font-style: normal;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 40px;
+    font-weight: 500;
+    font-size: 31px;
     line-height: 62px;
-    height: 80px;
-    width: 295px;
+    width: 260px;
+    height: 65px;
     border-radius: 10px;
     margin-top: 75px;
     background: #FFFFFF;
@@ -129,4 +164,15 @@ a {
 .start:hover {
     width: 350px;
     height: 100px;
+    margin-top: 90px;
+    background: #327DA1;
+    color: #FFFFFF;
+    animation: float 10s ease-in-out infinite;
+    transition: width 2s, height 2s;
+
+}
+
+button:hover {
+  width: 275px;
+  height: 85px;
 }

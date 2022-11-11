@@ -26,13 +26,29 @@
                 
                  window.location.href = `http://localhost:3000/score?name=${name.value}`
                 //  window.location.href = `http://localhost:3000/quiz?q=1`
-                //score page isn't integrated after the last question, the submit button leads strait to score sheet
+                //score page isn't integrated after the last question, the submit button leads directly to score sheet -Sofia
             }
-            </script>
-        </div>
+        </script>
+    </div>
         <button class="start" id="true"><a href='/quiz?q=1'>Begin</a></button>
-    </body>
-    <script>
+        <div class="body"></div>
+        <div class="subheading">3 Truths and a Lie</div>
+        <div class="heading">BCIT Instructors Edition</div>
+        <div class="avatars">
+            <img src="amalia_happy.png" alt="blueavatar">
+            <img src="darinka_happy.png" alt="orangeavatar">
+            <img src="chris_happy.png" alt="purpleavatar">
+            <img src="mac_happy.png" alt="yellowavatar">
+            <img src="wim_happy.png" alt="redavatar">
+            <img src="daemon_happy.png" alt="redavatar">
+            <img src="skip_happy.png" alt="redavatar">
+            <img src="rodan_happy.png" alt="redavatar">
+            <img src="richard_happy.png" alt="redavatar">
+        </div>
+        <button id="true"><a href='/quiz?q=1'>Begin</a></button>
+</body>
+<script> 
+// OLD SCRIPT
     // alert("Welcome to the BCIT Teacher Quiz");
     // var username = window.prompt("Your Name?")
     // alert("Welcome to THE QUIZ, " + username + "!");
