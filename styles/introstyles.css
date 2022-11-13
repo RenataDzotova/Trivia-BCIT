@@ -27,20 +27,6 @@ body {
     z-index: -1;
 }
 
-
-.image {
-    display: flex;
-    align-self:center;
-    width:200px;
-    height:200px;
-    border-radius: 50%;
-    margin-top:75px;
-    border: 2px solid #516789;
-    position: relative;
-    animation: intro 4s ease-in-out infinite;
-    animation-direction: alternate-reverse;
-}
-
 @keyframes backdrop {
   0% {background-color:#7AA9CD;}
   20% {background-color: #97BCD8;}
@@ -56,7 +42,8 @@ img {
   width:125px;
   height:125px;
   border-radius: 50%;
-  margin-top: 60px;
+  margin-top: 65px;
+  margin-bottom: 20px;
   opacity: 0.8;
   border: 2px solid #336084;
   position: relative;
@@ -66,7 +53,7 @@ img {
 
   @keyframes image {
     0% {transform: translatey(0px); opacity:0.9}
-    50% {transform: translatey(-20px);}
+    50% {transform: translatey(-30px);}
     100% {transform: translatey(0px);}
   }
 
@@ -84,7 +71,7 @@ img {
   font-weight: 400;
   font-size: 28px;
   text-align: center;
-  margin-top: 150px;
+  margin-top: 100px;
   color: #000000;
   animation: float 10s ease-in-out infinite;
 }
@@ -93,7 +80,7 @@ img {
   font-family: 'Laila';
   font-style: normal;
   font-weight: 600;
-  font-size: 50px;
+  font-size: 45px;
   text-align: center;
   margin-top: 20px;
   color: #000000;
@@ -111,6 +98,9 @@ a {
     color: #FFFFFF;
 }
 
+.name-div{
+  margin-top: 20px;
+}
 
 #name-input{
   width: 300px;
@@ -152,9 +142,9 @@ a {
     width: 260px;
     height: 65px;
     border-radius: 10px;
-    margin-top: 75px;
-    background: #FFFFFF;
-    color: #000000;
+    margin-top: 60px;
+    background: #327DA1;
+    color: #FFFFFF;
     animation: float 10s ease-in-out;
     animation-iteration-count: infinite;
     transition: width 0.5s, height 0.5s;
