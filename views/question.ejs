@@ -52,25 +52,10 @@
     <button onclick="SendAnswer(2,{allQuestions[]})">{allQuestions[].opt2} </button>
     <button onclick="SendAnswer(3,{allQuestions[]})">{allQuestions[].opt3}</button>
     <button onclick="SendAnswer(4,{allQuestions[]})">{allQuestions[].opt4}</button> -->
-    
-    <script>
-        function Next(){
-
-        if (window.location.href== "http://localhost:3000/quiz?q=9"){
-
-            window.location.href = `http://localhost:3000/score?name=${name.value}`
-
-        } else {
-            window.location.href = `http://localhost:3000/quiz?q=${<%= qnum+1 %>}`
-            }
-        }
-
-    </script>
 
         <h2></h2>
-        <a id="nextButton" onclick="Next()">
-        <!-- href=/quiz?q=<%= qnum+1 %>
-            class="defaultNextButton"> -->
+        <a id="nextButton" href=/quiz?q=<%= qnum+1 %>
+            class="defaultNextButton">
             <button class="next">Next</button>
         </a>
         <!-- <img  class="defaultNextButton" width="100" height="100"> -->
@@ -113,6 +98,10 @@
                     // scoreNum.innerText = results.finalScore
                     instructorFace.src = results.image
 
+                }
+                if (document.getElementById("nextButton").href === "http://localhost:3000/quiz?q=10"){
+                    const name = localStorage.getItem("names")
+                    document.getElementById("nextButton").href = `http://localhost:3000/score?name=${name}`
                 }
             })
             return
