@@ -28,19 +28,21 @@
             <img src="richard_happy.png" alt="richard">
         </div>
         <div class="name-div">
-            <input id="name-input" type="text" placeholder="Your Name"> 
+
+            <input id="name-input" type="text" placeholder="Enter Name">
             <button id="name-button" onclick="sendName()">Submit</button>
             <script>
                 function sendName(){
-                    const name = document.getElementById('name-input')
+                    const name = document.getElementById('name-input').value
                     
-                     window.location.href = `http://localhost:3000/score?name=${name.value}`
+                    localStorage.setItem("names", name);
+                    window.location.href = `http://localhost:3000/quiz?q=1`
                     //  window.location.href = `http://localhost:3000/quiz?q=1`
                     //score page isn't integrated after the last question, the submit button leads directly to score sheet -Sofia
                 }
             </script>
         </div>
-    <button class="start" id="true"><a href='/quiz?q=1'>Begin</a></button>
+    <button class="start" id="true" onclick="sendName()">Begin</button>
 </body>
 <script> 
 // OLD SCRIPT
